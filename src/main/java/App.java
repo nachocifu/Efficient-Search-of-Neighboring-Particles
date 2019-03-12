@@ -1,6 +1,6 @@
 import com.google.devtools.common.options.OptionsParser;
+import io.Parser;
 import io.SimulationOptions;
-import io.StaticParser;
 
 import java.util.Collections;
 
@@ -14,8 +14,8 @@ public class App {
 		if (options.rc < 0 || options.staticFile.isEmpty() || options.dynamicFile.isEmpty()) {
 			printUsage(parser);
 		}
-		StaticParser staticParser = new StaticParser(options.staticFile);
-		staticParser.parse();
+		Parser staticAndDynamicParser = new Parser(options.staticFile, options.dynamicFile);
+		staticAndDynamicParser.parse();
 	}
 
 	private static void printUsage(OptionsParser parser) {

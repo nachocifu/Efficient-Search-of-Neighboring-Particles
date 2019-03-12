@@ -1,6 +1,6 @@
 package models;
 
-import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -8,12 +8,12 @@ import java.util.Set;
 public class Particle {
 
 	private final int id;
-	private Point position;
+	private Point2D.Double position;
 	private double radius;
 	private double property;
 	private Set<Particle> neighbours;
 
-	public Particle(int id, Point position, double radius) {
+	public Particle(int id, Point2D.Double position, double radius) {
 		this.id = id;
 		this.position = position;
 		this.radius = radius;
@@ -59,11 +59,11 @@ public class Particle {
 		return id;
 	}
 
-	public Point getPosition() {
+	public Point2D.Double getPosition() {
 		return position;
 	}
 
-	public void setPosition(Point position) {
+	public void setPosition(Point2D.Double position) {
 		this.position = position;
 	}
 
