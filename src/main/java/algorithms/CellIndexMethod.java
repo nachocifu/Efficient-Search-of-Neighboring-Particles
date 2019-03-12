@@ -1,3 +1,7 @@
+package algorithms;
+
+import models.Particle;
+
 import java.util.List;
 
 public class CellIndexMethod {
@@ -8,7 +12,7 @@ public class CellIndexMethod {
 	private int[] heads;
 
 	/**
-	 * Particles that identify a cell.
+	 *
 	 */
 	private int[] list;
 

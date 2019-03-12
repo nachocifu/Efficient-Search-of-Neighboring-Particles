@@ -6,5 +6,6 @@ import java.util.Map;
 public class SimulationOutput {
 
 	private Map<Integer, List<Integer>> neighboursWithinRadiusC;
+	
 	private int executionTime;
 }
