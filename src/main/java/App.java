@@ -20,7 +20,7 @@ public class App {
 
 	private static void printUsage(OptionsParser parser) {
 		System.out.println("Usage: java -jar simulations.jar OPTIONS");
-		System.out.println(parser.describeOptions(Collections.<String, String>emptyMap(),
+		System.out.println(parser.describeOptions(Collections.emptyMap(),
 				OptionsParser.HelpVerbosity.LONG));
 	}
 }

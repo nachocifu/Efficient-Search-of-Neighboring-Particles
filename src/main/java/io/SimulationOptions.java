@@ -16,23 +16,23 @@ public class SimulationOptions extends OptionsBase {
 	)
 	public boolean help;
 
-//	@Option(
-//			name = "division",
-//			abbrev = 'M',
-//			help = "Box division.",
-//			category = "startup",
-//			defaultValue = "10"
-//	)
-//	public int M;
+	@Option(
+			name = "division",
+			abbrev = 'M',
+			help = "Box division.",
+			category = "startup",
+			defaultValue = "10"
+	)
+	public int M;
 
 	@Option(
 			name = "radiusC",
 			abbrev = 'r',
 			help = "interaction radius",
 			category = "startup",
-			defaultValue = "1"
+			defaultValue = "1.0"
 	)
-	public int rc;
+	public double rc;
 
 	@Option(
 			name = "particle",
@@ -46,11 +46,20 @@ public class SimulationOptions extends OptionsBase {
 	@Option(
 			name = "pbc",
 			abbrev = 'b',
-			help = "Periodic boundary conditions.",
+			help = "Enable periodic boundary conditions.",
 			category = "startup",
 			defaultValue = "true"
 	)
 	public boolean pbc;
+
+	@Option(
+			name = "bf",
+			abbrev = 'f',
+			help = "Enable brute force algorithm.",
+			category = "startup",
+			defaultValue = "true"
+	)
+	public boolean bf;
 
 	@Option(
 			name = "staticFile",
