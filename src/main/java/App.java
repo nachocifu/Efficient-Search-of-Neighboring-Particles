@@ -1,5 +1,6 @@
 import com.google.devtools.common.options.OptionsParser;
 import io.SimulationOptions;
+import io.StaticParser;
 
 import java.util.Collections;
 
@@ -9,11 +10,12 @@ public class App {
 		OptionsParser parser = OptionsParser.newOptionsParser(SimulationOptions.class);
 		parser.parseAndExitUponError(args);
 		SimulationOptions options = parser.getOptions(SimulationOptions.class);
-//		if (options.host.isEmpty() || options.port < 0 || options.dirs.isEmpty()) {
-		printUsage(parser);
-//			return;
-//		}
-
+		assert options != null;
+		if (options.rc < 0 || options.staticFile.isEmpty() || options.dynamicFile.isEmpty()) {
+			printUsage(parser);
+		}
+		StaticParser staticParser = new StaticParser(options.staticFile);
+		staticParser.parse();
 	}
 
 	private static void printUsage(OptionsParser parser) {

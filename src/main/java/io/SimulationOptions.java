@@ -17,24 +17,6 @@ public class SimulationOptions extends OptionsBase {
 	public boolean help;
 
 //	@Option(
-//			name = "side",
-//			abbrev = 'L',
-//			help = "Side of box.",
-//			category = "startup",
-//			defaultValue = "10"
-//	)
-//	public int L;
-//
-//	@Option(
-//			name = "particles",
-//			abbrev = 'N',
-//			help = "Number of particles.",
-//			category = "startup",
-//			defaultValue = "10"
-//	)
-//	public int N;
-
-//	@Option(
 //			name = "division",
 //			abbrev = 'M',
 //			help = "Box division.",
