@@ -17,7 +17,10 @@ public class CellIndexMethod {
 	private int[] list;
 
 
-	public void run(List<Particle> particles, int N, int L, int M, int radiusC) {
+	public static void run(List<Particle> particles, int N, int L, int M, int radiusC) {
 
+	}
+
+	public static void run(List<List<Particle>> cells) {
 	}
 }
