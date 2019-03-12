@@ -2,7 +2,6 @@ package models;
 
 import java.awt.geom.Point2D;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class Particle {
@@ -25,17 +24,12 @@ public class Particle {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Particle particle = (Particle) o;
-		return id == particle.id &&
-				Double.compare(particle.radius, radius) == 0 &&
-				Double.compare(particle.property, property) == 0 &&
-				Objects.equals(position, particle.position) &&
-				Objects.equals(neighbours, particle.neighbours);
+		return id == particle.id;
 	}
 
 	@Override
 	public int hashCode() {
-
-		return Objects.hash(id, position, radius, property, neighbours);
+		return id;
 	}
 
 	@Override

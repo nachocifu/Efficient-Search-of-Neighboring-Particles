@@ -27,19 +27,18 @@ public class Parser {
 		this.particles = new LinkedList<>();
 	}
 
-	public void parse() {
-		parseStaticFile();
-		parseDynamicFile();
+	public boolean parse() {
+		return parseStaticFile() && parseDynamicFile();
 	}
 
-	private void parseStaticFile() {
+	private boolean parseStaticFile() {
 		File staticFile = new File(staticFilePath);
 		Scanner sc;
 		try {
 			sc = new Scanner(staticFile);
 		} catch (FileNotFoundException e) {
 			System.out.println("Static file not found exception: " + staticFilePath);
-			return;
+			return false;
 		}
 		numberOfParticles = sc.nextInt();
 		boxSide = sc.nextInt();
@@ -49,16 +48,17 @@ public class Parser {
 			particles.add(new Particle(i + 1, radius, property));
 		}
 		sc.close();
+		return true;
 	}
 
-	private void parseDynamicFile() {
+	private boolean parseDynamicFile() {
 		File dynamicFile = new File(dynamicFilePath);
 		Scanner sc;
 		try {
 			sc = new Scanner(dynamicFile);
 		} catch (FileNotFoundException e) {
 			System.out.println("Dynamic file not found exception: " + dynamicFilePath);
-			return;
+			return false;
 		}
 		sc.nextInt();   // t0 not used
 		for (int i = 0; i < numberOfParticles; i++) {
@@ -69,6 +69,7 @@ public class Parser {
 			particles.add(particle);
 		}
 		sc.close();
+		return true;
 	}
 
 	public String getStaticFilePath() {

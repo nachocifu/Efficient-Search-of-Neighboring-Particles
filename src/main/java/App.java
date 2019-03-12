@@ -22,7 +22,7 @@ public class App {
 
 		// Parse static and dynamic files
 		Parser staticAndDynamicParser = new Parser(options.staticFile, options.dynamicFile);
-		staticAndDynamicParser.parse();
+		if (!staticAndDynamicParser.parse()) return;
 
 		// Run algorithm
 		runAlgorithm(staticAndDynamicParser.getParticles(),
