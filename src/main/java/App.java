@@ -5,9 +5,7 @@ import io.Parser;
 import io.SimulationOptions;
 import models.Particle;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Queue;
 
 public class App {
@@ -27,25 +25,40 @@ public class App {
 		staticAndDynamicParser.parse();
 
 		// Run algorithm
-		runAlgorithm(staticAndDynamicParser.getParticles(), options.bf, options.rc, options.M, options.pbc,
-				options.particle, staticAndDynamicParser.getBoxSide());
+		runAlgorithm(staticAndDynamicParser.getParticles(),
+				staticAndDynamicParser.getBoxSide(),
+				options.M,
+				options.rc,
+				options.bf,
+				options.pbc);
 	}
 
-	private static void runAlgorithm(Queue<Particle> particles, boolean bf, double rc, int m, boolean pbc, int particle, int L) {
+	private static void runAlgorithm(Queue<Particle> particles,
+	                                 int L,
+	                                 int M,
+	                                 double interactionRadius,
+	                                 boolean bruteForce,
+	                                 boolean periodicBoundaryContour) {
+
 		long startTime = System.currentTimeMillis();
 
-		List<List<Particle>> cells = new ArrayList<>();
-
-		if (bf) {
-			BruteForce.run(particles, pbc, rc, L);
+		if (bruteForce) {
+			BruteForce.run(particles,
+					L,
+					interactionRadius,
+					periodicBoundaryContour);
 		} else {
-			CellIndexMethod.run(cells);
+			CellIndexMethod.run(particles,
+					L,
+					M,
+					interactionRadius,
+					periodicBoundaryContour);
 		}
 
 		long stopTime = System.currentTimeMillis();
 		long elapsedTime = stopTime - startTime;
 
-		if (bf) {
+		if (bruteForce) {
 			System.out.println("Brute Force execution time: " + elapsedTime + "ms");
 		} else {
 			System.out.println("Cell Index Method execution time: " + elapsedTime + "ms");

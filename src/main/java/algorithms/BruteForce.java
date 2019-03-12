@@ -6,7 +6,11 @@ import java.util.Queue;
 
 public class BruteForce {
 
-	public static void run(Queue<Particle> particles, boolean periodicBoundaryContour, double interactionRadius, int L) {
+	public static void run(Queue<Particle> particles,
+	                       int L,
+	                       double interactionRadius,
+	                       boolean periodicBoundaryContour) {
+		
 		for (Particle p1 : particles) {
 			for (Particle p2 : particles) {
 				if (!p1.equals(p2) && !p1.getNeighbours().contains(p2)) {

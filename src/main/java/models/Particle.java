@@ -13,17 +13,11 @@ public class Particle {
 	private double property;
 	private Set<Particle> neighbours;
 
-	public Particle(int id, Point2D.Double position, double radius) {
-		this.id = id;
-		this.position = position;
-		this.radius = radius;
-		this.neighbours = new HashSet<>();
-	}
-
 	public Particle(int id, double radius, double property) {
 		this.id = id;
 		this.radius = radius;
 		this.property = property;
+		this.neighbours = new HashSet<>();
 	}
 
 	@Override
@@ -67,12 +61,8 @@ public class Particle {
 		this.position = position;
 	}
 
-	public double getRadius() {
+	private double getRadius() {
 		return radius;
-	}
-
-	public void setRadius(double radius) {
-		this.radius = radius;
 	}
 
 	public double getProperty() {
@@ -85,10 +75,6 @@ public class Particle {
 
 	public Set<Particle> getNeighbours() {
 		return neighbours;
-	}
-
-	public void setNeighbours(Set<Particle> neighbours) {
-		this.neighbours = neighbours;
 	}
 
 	/**
