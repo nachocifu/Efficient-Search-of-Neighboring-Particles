@@ -20,17 +20,13 @@ def generate_files(number_of_particles, area_length):
     generate_static_file(number_of_particles, area_length,'Static-' + str(number_of_particles) + '.txt')
     generate_dynamic_file(number_of_particles, area_length,'Dynamic-' + str(number_of_particles) + '.txt')
 
+def generate_multiple_files(index, number_of_particles, area_length):
+    generate_static_file(number_of_particles, area_length,'Static-' + str(index) + '.txt')
+    generate_dynamic_file(number_of_particles, area_length,'Dynamic-' + str(index) + '.txt')
+
 def is_int_string(s):
     try:
         int(s)
         return True
     except ValueError:
         return False
-
-number_of_particles = input("Enter number of particles N: ")
-area_length = input("Enter area length L: ")
-
-if not is_int_string(number_of_particles) or not is_int_string(area_length):
-    sys.exit("All arguments must be integers. Exit.")
-
-generate_files(int(number_of_particles), int(area_length))

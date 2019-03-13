@@ -17,7 +17,7 @@ public class SimulationOptions extends OptionsBase {
 	public boolean help;
 
 	@Option(
-			name = "division",
+			name = "matrix",
 			abbrev = 'M',
 			help = "Box division.",
 			category = "startup",
@@ -26,22 +26,13 @@ public class SimulationOptions extends OptionsBase {
 	public int M;
 
 	@Option(
-			name = "radiusC",
+			name = "radius",
 			abbrev = 'r',
 			help = "interaction radius",
 			category = "startup",
 			defaultValue = "1.0"
 	)
 	public double rc;
-
-	@Option(
-			name = "particle",
-			abbrev = 'p',
-			help = "A specified particle to view its neighbours.",
-			category = "startup",
-			defaultValue = "1"
-	)
-	public int particle;
 
 	@Option(
 			name = "pbc",
