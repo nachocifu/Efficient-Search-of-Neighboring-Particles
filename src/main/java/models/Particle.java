@@ -55,7 +55,7 @@ public class Particle {
 		this.position = position;
 	}
 
-	private double getRadius() {
+	public double getRadius() {
 		return radius;
 	}
 

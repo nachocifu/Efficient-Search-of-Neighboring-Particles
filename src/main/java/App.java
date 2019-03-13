@@ -1,11 +1,15 @@
 import algorithms.BruteForce;
 import algorithms.CellIndexMethod;
 import com.google.devtools.common.options.OptionsParser;
+import io.OvitoWriter;
 import io.Parser;
 import io.SimulationOptions;
 import models.Particle;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class App {
@@ -70,6 +74,15 @@ public class App {
 				System.out.print(" " + neighbour.getId());
 			}
 			System.out.print("\n");
+		}
+
+		OvitoWriter<Particle> ovitoWriter;
+		try {
+			ovitoWriter = new OvitoWriter<>(Paths.get("out.txt"));
+			ovitoWriter.exportPositions(new LinkedList<>(particles), 0);
+			ovitoWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
