@@ -5,19 +5,19 @@ import numpy
 
 with open('brute_force.csv', 'w') as f:
 	csv_writer = csv.writer(f, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-	header = ['Matrix {n}x{n}'.format(n=i) for i in range(1, 20)]
+	header = ['Matrix {n}x{n}'.format(n=i) for i in range(1, 13)]
 	header.insert(0, 'file')
 	header.append('Brute Force')
 	csv_writer.writerow(header)
 	for x in range(1, 20):
 		averages = [x]
 		std = ['std']
-		for y in range(1, 21):
+		for y in range(1, 13):
 			values = []
-			brute_force = '--bf' if y == 20 else ''
+			brute_force = 'true' if y == 13 else 'false'
 			if brute_force:
 				for z in range(0,20):
-					command = 'java -jar ./target/tp1-1.0-SNAPSHOT.jar --staticFile ./random/Static-{index}.txt --dynamicFile ./random/Dynamic-{index}.txt -r 1 -M {matrix} {brute_force}'.format(
+					command = 'java -jar ./target/tp1-1.0-SNAPSHOT.jar --staticFile=random/Static-{index}.txt --dynamicFile=random/Dynamic-{index}.txt --radius=1.0 --matrix={matrix} --bf={brute_force} '.format(
 						index=x,
 						matrix=y,
 						brute_force=brute_force

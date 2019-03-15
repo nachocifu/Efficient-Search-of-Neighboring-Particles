@@ -70,7 +70,7 @@ public class CellIndexMethod {
 				cellX = 0;
 			}
 
-			if (cellX < 0) { //TODO: == -1?
+			if (cellX < 0) {
 				cellX = M - 1;
 			}
 
@@ -78,7 +78,7 @@ public class CellIndexMethod {
 				cellY = 0;
 			}
 
-			if (cellY > 0) { //TODO: == -1?
+			if (cellY < 0) {
 				cellY = M - 1;
 			}
 
@@ -90,6 +90,11 @@ public class CellIndexMethod {
 
 		int neighbourCellNumber = (int) (cellY * M + cellX);
 
+		if (neighbourCellNumber == -1) {
+			System.out.println("cellY: " + cellY);
+			System.out.println("M: " + M);
+			System.out.println("cellX: " + cellX);
+		}
 		List<CellParticle> neighbourCellParticles = cells.get(neighbourCellNumber);
 
 		for (CellParticle neighbourCellParticle : neighbourCellParticles) {

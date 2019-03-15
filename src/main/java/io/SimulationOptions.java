@@ -12,7 +12,7 @@ public class SimulationOptions extends OptionsBase {
 			name = "help",
 			abbrev = 'h',
 			help = "Prints usage info.",
-			defaultValue = "true"
+			defaultValue = "false"
 	)
 	public boolean help;
 
@@ -39,7 +39,7 @@ public class SimulationOptions extends OptionsBase {
 			abbrev = 'b',
 			help = "Enable periodic boundary conditions.",
 			category = "startup",
-			defaultValue = "true"
+			defaultValue = "false"
 	)
 	public boolean pbc;
 
@@ -48,7 +48,7 @@ public class SimulationOptions extends OptionsBase {
 			abbrev = 'f',
 			help = "Enable brute force algorithm.",
 			category = "startup",
-			defaultValue = "true"
+			defaultValue = "false"
 	)
 	public boolean bf;
 
