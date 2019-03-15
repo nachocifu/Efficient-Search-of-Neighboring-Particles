@@ -1,6 +1,17 @@
 # Efficient-Search-of-Neighboring-Particles
 Efficient Search of Neighboring Particles
 
+## Note on non-puntual particles
+
+The criteria `L/M > interactionRadius` changes to `L/M > interactionRadius + 2 * particleRadius`.
+
+## Algorithm efficiency
+
+Given `L=20`, `interactionRadius=1` and `particleRadius=0.25` and the previous criteria,
+matrix size `M` is bounded as `M < 40/3 = 13,33`.
+
+In this sense, tests were made for different values of M and N. 
+
 ## Compilation
 
 ```

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 public class App {
@@ -28,8 +29,19 @@ public class App {
 		Parser staticAndDynamicParser = new Parser(options.staticFile, options.dynamicFile);
 		if (!staticAndDynamicParser.parse()) return;
 
+		Queue<Particle> particles = staticAndDynamicParser.getParticles();
+
+		// Validate matrix size meets non-punctual criteria
+		if (!BoxSizeMeetsCriteria(options.M,
+				staticAndDynamicParser.getBoxSide(),
+				options.rc,
+				Objects.requireNonNull(particles.peek()).getRadius())) {
+			System.out.println("L / M > interactionRadius + 2 * particleRadius failed.");
+			return;
+		}
+
 		// Run algorithm
-		runAlgorithm(staticAndDynamicParser.getParticles(),
+		runAlgorithm(particles,
 				staticAndDynamicParser.getBoxSide(),
 				options.M,
 				options.rc,
@@ -87,8 +99,12 @@ public class App {
 	}
 
 	private static void printUsage(OptionsParser parser) {
-		System.out.println("Usage: java -jar simulations.jar OPTIONS");
+		System.out.println("Usage: java -jar tp1-1.0-SNAPSHOT.jar OPTIONS");
 		System.out.println(parser.describeOptions(Collections.emptyMap(),
 				OptionsParser.HelpVerbosity.LONG));
+	}
+
+	private static boolean BoxSizeMeetsCriteria(int M, int L, double interactionRadius, double particleRadius) {
+		return L / M > interactionRadius + 2 * particleRadius;
 	}
 }
