@@ -78,8 +78,8 @@ public class App {
 
 		OvitoWriter<Particle> ovitoWriter;
 		try {
-			ovitoWriter = new OvitoWriter<>(Paths.get("out.txt"));
-			ovitoWriter.exportPositions(new LinkedList<>(particles), 0);
+			ovitoWriter = new OvitoWriter<>(Paths.get("ovito_file.txt"));
+			ovitoWriter.exportParticles(new LinkedList<>(particles), 0);
 			ovitoWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -16,10 +16,9 @@ public class OvitoWriter<T extends Particle> {
 	private final FileWriter fileWriter;
 
 	public OvitoWriter(File file) throws IOException {
-		// Create directories if needed, see https://stackoverflow.com/a/4040667
 		Optional<File> containingDir = Optional.ofNullable(file.getParentFile());
 		if (containingDir.map(dir -> !dir.exists() && !dir.mkdirs()).orElse(false)) {
-			throw new IllegalStateException("Couldn't create dir: " + containingDir);
+			throw new IllegalStateException("Could not create dir: " + containingDir);
 		}
 		this.file = file;
 		this.fileWriter = new FileWriter(this.file);
@@ -33,22 +32,22 @@ public class OvitoWriter<T extends Particle> {
 		this.fileWriter.close();
 	}
 
-	public void exportPositions(List<T> particles, double time) throws IOException {
+	public void exportParticles(List<Particle> particles, double time) throws IOException {
 		Objects.requireNonNull(particles);
 		final int dataSize = particles.size();
 		fileWriter.write(String.format("%d\n%g\n", dataSize, time));
-		for (T element : particles) {
+		for (Particle particle : particles) {
 			// Write basic element data
 			fileWriter.write(String.format("%d\t%g\t%g",
-					element.getId(),
-					element.getPosition().x,
-					element.getPosition().y))
+					particle.getId(),
+					particle.getPosition().x,
+					particle.getPosition().y))
 			;
 			// Write color
-			Color color = Color.BLUE;
+			Color color = Color.RED;
 			fileWriter.write(String.format("\t%d\t%d\t%d", color.getRed(), color.getGreen(), color.getBlue()));
 			// Write draw radius
-			fileWriter.write(String.format("\t%g", element.getRadius()));
+			fileWriter.write(String.format("\t%g", particle.getRadius()));
 			// Always write newline
 			fileWriter.write('\n');
 		}
