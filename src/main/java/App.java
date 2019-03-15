@@ -50,7 +50,7 @@ public class App {
 	}
 
 	private static void runAlgorithm(Queue<Particle> particles,
-	                                 int L,
+	                                 double L,
 	                                 int M,
 	                                 double interactionRadius,
 	                                 boolean bruteForce,
@@ -104,7 +104,7 @@ public class App {
 				OptionsParser.HelpVerbosity.LONG));
 	}
 
-	private static boolean BoxSizeMeetsCriteria(int M, int L, double interactionRadius, double particleRadius) {
+	private static boolean BoxSizeMeetsCriteria(int M, double L, double interactionRadius, double particleRadius) {
 		return L / M > interactionRadius + 2 * particleRadius;
 	}
 }

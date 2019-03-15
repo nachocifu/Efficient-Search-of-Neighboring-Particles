@@ -31,9 +31,16 @@ def is_int_string(s):
     except ValueError:
         return False
 
-def get_float():
+def get_radius():
     while True:
         try:
             return float(input("Enter particle radius r: "))
+        except ValueError:
+            print("Number not a float.")
+
+def get_area_length():
+    while True:
+        try:
+            return float(input("Enter area length L: "))
         except ValueError:
             print("Number not a float.")

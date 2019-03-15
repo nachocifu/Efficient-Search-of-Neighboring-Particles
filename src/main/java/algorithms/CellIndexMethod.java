@@ -18,10 +18,10 @@ public class CellIndexMethod {
 	private static boolean pbc;
 	private static double rc;
 	private static int M;
-	private static int L;
+	private static double L;
 
 	public static void run(Queue<Particle> particles,
-	                       int boxSide,
+	                       double boxSide,
 	                       int matrixSize,
 	                       double interactionRadius,
 	                       boolean periodicBoundaryContour) {
@@ -90,11 +90,6 @@ public class CellIndexMethod {
 
 		int neighbourCellNumber = (int) (cellY * M + cellX);
 
-		if (neighbourCellNumber == -1) {
-			System.out.println("cellY: " + cellY);
-			System.out.println("M: " + M);
-			System.out.println("cellX: " + cellX);
-		}
 		List<CellParticle> neighbourCellParticles = cells.get(neighbourCellNumber);
 
 		for (CellParticle neighbourCellParticle : neighbourCellParticles) {

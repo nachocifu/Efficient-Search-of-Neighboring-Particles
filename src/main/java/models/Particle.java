@@ -78,7 +78,7 @@ public class Particle {
 	 * So this applies too for (0,5) and (0,6), or, when the index is greater than L/2.
 	 * L is the size of the side of the box/matrix.
 	 */
-	public double getPeriodicDistanceBetween(Particle particle, int L) {
+	public double getPeriodicDistanceBetween(Particle particle, double L) {
 		Point2D.Double particlePosition = particle.getPosition();
 		double dx = Math.abs(this.position.x - particlePosition.x);
 		if (dx > L / 2)

@@ -7,7 +7,7 @@ import java.util.Queue;
 public class BruteForce {
 
 	public static void run(Queue<Particle> particles,
-	                       int L,
+	                       double L,
 	                       double interactionRadius,
 	                       boolean periodicBoundaryContour) {
 		

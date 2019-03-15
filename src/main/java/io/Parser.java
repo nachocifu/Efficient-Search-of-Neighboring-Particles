@@ -18,7 +18,7 @@ public class Parser {
 	private String dynamicFilePath;
 
 	private int numberOfParticles;
-	private int boxSide;
+	private double boxSide;
 	private Queue<Particle> particles;
 
 	public Parser(String staticFilePath, String dynamicFilePath) {
@@ -41,7 +41,7 @@ public class Parser {
 			return false;
 		}
 		numberOfParticles = sc.nextInt();
-		boxSide = sc.nextInt();
+		boxSide = sc.nextDouble();
 		for (int i = 0; i < numberOfParticles; i++) {
 			double radius = sc.nextDouble();
 			double property = sc.nextDouble();
@@ -96,11 +96,11 @@ public class Parser {
 		this.numberOfParticles = numberOfParticles;
 	}
 
-	public int getBoxSide() {
+	public double getBoxSide() {
 		return boxSide;
 	}
 
-	public void setBoxSide(int boxSide) {
+	public void setBoxSide(double boxSide) {
 		this.boxSide = boxSide;
 	}
 
