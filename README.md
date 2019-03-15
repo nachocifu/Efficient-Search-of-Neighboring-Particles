@@ -3,7 +3,17 @@ Efficient Search of Neighboring Particles
 
 ## Note on non-puntual particles
 
-The criteria `L/M > interactionRadius` changes to `L/M > interactionRadius + 2 * particleRadius`.
+The criteria `L/M > interactionRadius` changes to `L/M > interactionRadius + 2 * maximumParticleRadius`.
+
+## Note on optimum M for growing density
+
+Given `L=20`, `interactionRadius=1` and `particleRadius=0.25` and the previous criteria,
+matrix size `M` is bounded as `M < 40/3 = 13,33`.
+
+In this sense, tests were made for different values of M and N.
+
+
+For a greater density, a greater M is better. M = 13 is the optimum M for these tests.
 
 ## Algorithm efficiency
 

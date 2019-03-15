@@ -66,7 +66,7 @@ public class CellIndexMethod {
 
 		if (pbc) {
 			// Reset neighbour cell indexes to comply with contour
-			if (cellX >= M) {
+			if (cellX >= M){
 				cellX = 0;
 			}
 
@@ -74,7 +74,7 @@ public class CellIndexMethod {
 				cellX = M - 1;
 			}
 
-			if (cellY >= M) {
+			if (cellY >= M){
 				cellY = 0;
 			}
 

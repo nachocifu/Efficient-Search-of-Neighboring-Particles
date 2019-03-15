@@ -1,6 +1,6 @@
 from functions import generate_multiple_files
 
-numbers = [10,50,100,500,1000,1100]
+numbers = [100,200,300,400,500,600,700,800,900,1000]
 
 i = 0
 for x in numbers:

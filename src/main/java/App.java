@@ -105,6 +105,6 @@ public class App {
 	}
 
 	private static boolean BoxSizeMeetsCriteria(int M, double L, double interactionRadius, double particleRadius) {
-		return L / M > interactionRadius + 2 * particleRadius;
+		return M > 0 && L / M > interactionRadius + 2 * particleRadius;
 	}
 }
