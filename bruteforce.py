@@ -35,6 +35,6 @@ with open('brute_force.csv', 'w') as f:
 				values.append(int(number))
 			retval = p.wait()
 			averages.append(numpy.mean(values))
-			std.append(numpy.std(values))
+			std.append(round(numpy.std(values),2))
 		csv_writer.writerow(averages)
 		csv_writer.writerow(std)

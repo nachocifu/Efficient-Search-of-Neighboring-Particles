@@ -12,15 +12,10 @@ matrix size `M` is bounded as `M < 40/3 = 13,33`.
 
 In this sense, tests were made for different values of M and N.
 
+<img width="1015" alt="image" src="https://user-images.githubusercontent.com/19524560/54481397-ddd75a00-4812-11e9-8480-aae637c7f03e.png">
 
-For a greater density, a greater M is better. M = 13 is the optimum M for these tests.
 
-## Algorithm efficiency
-
-Given `L=20`, `interactionRadius=1` and `particleRadius=0.25` and the previous criteria,
-matrix size `M` is bounded as `M < 40/3 = 13,33`.
-
-In this sense, tests were made for different values of M and N. 
+For a greater density, a greater M is better. M = 13 is the optimum M for these tests. 
 
 ## Compilation
 
