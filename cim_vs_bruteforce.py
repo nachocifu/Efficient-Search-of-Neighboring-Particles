@@ -3,13 +3,19 @@ import subprocess
 import csv
 import numpy
 
-with open('brute_force.csv', 'w') as f:
+dirName="output"
+
+if not os.path.exists(dirName):
+        os.mkdir(dirName)
+        print("Directory " , dirName ,  " Created ")
+
+with open('output/cim_vs_bruteforce.csv', 'w') as f:
 	csv_writer = csv.writer(f, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 	header = ['Matrix {n}x{n}'.format(n=i) for i in range(1, 14)]
 	header.insert(0, 'file')
 	header.append('Brute Force')
 	csv_writer.writerow(header)
-	for x in range(1, 11):
+	for x in range(1, 2):
 		averages = [x]
 		std = ['std']
 		for y in range(1, 15):
